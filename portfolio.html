@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hussein Salami - IT Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 2rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+.project-image {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    min-height: 200px; 
+    padding: 1rem; 
+}
+
+.project-image img {
+    width: auto;
+    height: auto;
+    max-width: 100%; 
+    max-height: 400px; 
+    display: block;
+}
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .project-content .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .project-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: #555;
+        }
+
+        .skill-category li:before {
+            content: "▹ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #764ba2;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hussein Salami</h1>
+        <p>Junior IT Professional | Home Lab Enthusiast</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+I am an aspiring Junior IT Professional with a strong technical foundation built on the rigorous standards of the CompTIA A+ certification. This has equipped me with the skills to troubleshoot hardware, manage diverse operating systems, and implement secure networking solutions.<br>
+I actively apply this knowledge by building enterprise-simulated lab environments where I experiment with virtualization and systems administration. Above all, I am deeply passionate about learning and constantly seek opportunities to expand my technical expertise.<br>
+<b>I am now looking for a professional IT environment where I can contribute my problem-solving skills and continue to grow.</b> </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Home Lab Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"> <img src="images/windows_server_2022.jpg" alt="Windows Server 2022"></div>
+                    <div class="project-image">
+<img src="images/windows_server_2022_specifications.jpg" alt="Windows Server 2022_specifications">
+ </div>
+<div class="project-image">
+<img src="images/active directory.jpg" alt="active directory">
+ </div>
+
+                    <div class="project-content">
+                        <h3 style="text-align: center;">Windows Server 2022 Lab: Installing OS & Configuring Active Directory <br>with Custom Users</h3>                     <!--
+   <div class="tech-tags">
+                            <span class="tech-tag">VMware</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Docker</span>
+                        </div> -->
+                        <p>
+In this lab, I installed Windows Server 2022 on VirtualBox, promoted the server to a Domain Controller, and configured Active Directory Domain Services (AD DS) for the domain corp.local. I then created and organized custom user accounts (e.g., IT Admin, HR User, Finance User) using Active Directory Users and Computers. The setup was verified using command-line tools (hostname, whoami) and Server Manager.                        </p>
+                    </div>
+                </div>
+
+<div class="project-card">
+                    <div class="project-image"><img src="images/windows 11.JPG" alt="windows 11"></div>
+<div class="project-image"><img src="images/windows 11_specifications.JPG" alt="windows 11 specifications"></div>
+                    <div class="project-content">
+                        <h3>Windows 11 Lab Setup in VirtualBox: Configuration Verification via Command Prompt</h3>
+                   <!--     <div class="tech-tags">
+                            <span class="tech-tag">pfSense</span>
+                            <span class="tech-tag">Networking</span>
+                            <span class="tech-tag">Security</span>
+                        </div> -->
+                        <p>
+Set up Windows 11 Enterprise in VirtualBox with full TPM/Secure Boot support — verified using native CMD commands (hostname, systeminfo, ipconfig) to confirm OS version, network, and system settings. </p>
+                    </div>
+                </div>
+
+<div class="project-card">
+                    <div class="project-image"><img src="images/windows 10.png" alt="windows 10"></div>
+                    <div class="project-content">
+                        <h3>Project Name 2</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">pfSense</span>
+                            <span class="tech-tag">Networking</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                        <p>
+                            Brief description of your project. Explain what you built, what technologies you used, 
+                            and what problems you solved. Keep it concise but informative.
+                        </p>
+                    </div>
+                </div>
+
+<div class="project-card">
+                    <div class="project-image"><img src="images/ubuntu.JPG" alt="ubuntu"></div>
+<div class="project-image"><img src="images/Ubuntu_specifications.JPG" alt="Ubuntu specifications"></div>
+                    <div class="project-content">
+                        <h3>Project Name 2</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">pfSense</span>
+                            <span class="tech-tag">Networking</span>
+                            <span class="tech-tag">Security</span>
+                        </div>
+                        <p>
+                            Brief description of your project. Explain what you built, what technologies you used, 
+                            and what problems you solved. Keep it concise but informative.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="project-card">
+                    <div class="project-image"> <img src="images/macOS.JPG" alt="macOS">
+ </div>
+                    <div class="project-image"> <img src="images/macOS VM specifications.JPG" alt="macOS VM specifications">
+ </div>
+
+                    <div class="project-content">
+                        <h3>Project Name 3</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Proxmox</span>
+                            <span class="tech-tag">Automation</span>
+                            <span class="tech-tag">Monitoring</span>
+                        </div>
+                        <p>
+                            Brief description of your project. Explain what you built, what technologies you used, 
+                            and what problems you solved. Keep it concise but informative.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Hardware</h3>
+                    <ul>
+                        <li>PC Assembly & Troubleshooting</li>
+                        <li>Mobile Devices & Tablets</li>
+                        <li>Printers & Peripherals</li>
+                        <li>Cable Management & Organization</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Operating Systems</h3>
+                    <ul>
+                        <li>Windows 10/11</li>
+                        <li>macOS</li>
+                        <li>Linux Basics</li>
+                        <li>Command Line Interface</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Networking</h3>
+                    <ul>
+                        <li>TCP/IP, DNS, DHCP</li>
+                        <li>Network Troubleshooting</li>
+                        <li>WiFi & Router Configuration</li>
+                        <li>Network Security Basics</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Security & Support</h3>
+                    <ul>
+                        <li>Malware Removal & Prevention</li>
+                        <li>Data Backup & Recovery</li>
+                        <li>User Account Management</li>
+                        <li>Help Desk Support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm currently looking for junior IT positions and would love to connect with potential employers or fellow tech enthusiasts.</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-btn">Email Me</a>
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-btn">LinkedIn</a>
+                    <a href="https://github.com/yourusername" class="contact-btn">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Hussein Salami. All rights reserved.</p>
+    </footer>
+</body>
+</html>
