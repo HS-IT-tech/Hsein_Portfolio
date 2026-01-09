@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hussein Salami - Junior IT Professional specializing in systems administration, virtualization, and Active Directory">
+    <meta name="keywords" content="IT Professional, CompTIA A+, Windows Server, Active Directory, Home Lab, Linux, Networking">
+    <meta name="author" content="Hussein Salami">
     <title>Hussein Salami - IT Portfolio</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -58,11 +65,17 @@
             color: #667eea;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
             color: #764ba2;
+        }
+
+        nav a:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 4px;
+            border-radius: 2px;
         }
 
         /* Container */
@@ -94,7 +107,7 @@
             margin: 0 auto;
             text-align: center;
             font-size: 1.1rem;
-            color: #555;
+            color: #444;
         }
 
         /* Projects Grid */
@@ -112,7 +125,7 @@
             background: #f9f9f9;
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .project-card:hover {
@@ -120,24 +133,25 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
 
-.project-image {
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 3rem;
-    min-height: 200px; 
-    padding: 1rem; 
-}
+        .project-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            min-height: 200px; 
+            padding: 1rem;
+            background: #f0f0f0;
+        }
 
-.project-image img {
-    width: auto;
-    height: auto;
-    max-width: 100%; 
-    max-height: 400px; 
-    display: block;
-}
+        .project-image img {
+            width: auto;
+            height: auto;
+            max-width: 100%; 
+            max-height: 400px; 
+            display: block;
+            object-fit: contain;
+        }
 
         .project-content {
             padding: 1.5rem;
@@ -165,7 +179,7 @@
         }
 
         .project-content p {
-            color: #666;
+            color: #444;
             line-height: 1.6;
         }
 
@@ -182,6 +196,11 @@
             padding: 1.5rem;
             border-radius: 8px;
             border-left: 4px solid #667eea;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateX(5px);
         }
 
         .skill-category h3 {
@@ -195,7 +214,7 @@
 
         .skill-category li {
             padding: 0.5rem 0;
-            color: #555;
+            color: #444;
         }
 
         .skill-category li:before {
@@ -209,6 +228,11 @@
             text-align: center;
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: #444;
+            font-size: 1.1rem;
         }
 
         .contact-links {
@@ -226,11 +250,18 @@
             padding: 0.8rem 2rem;
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
         }
 
         .contact-btn:hover {
             background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .contact-btn:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 4px;
         }
 
         /* Footer */
@@ -241,18 +272,81 @@
             padding: 2rem;
         }
 
+        /* Print Styles */
+        @media print {
+            nav, footer {
+                display: none;
+            }
+            
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                margin-bottom: 1rem;
+            }
+            
+            .project-card {
+                page-break-inside: avoid;
+            }
+            
+            header {
+                background: #667eea;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
             }
             
+            header p {
+                font-size: 1rem;
+            }
+            
             nav ul {
-                gap: 1rem;
+                gap: 0.5rem;
+                font-size: 0.9rem;
             }
             
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                gap: 1rem;
+            }
+            
+            .contact-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 3rem 1rem;
+            }
+            
+            header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            nav {
+                padding: 0.5rem 1rem;
+            }
+            
+            nav ul {
+                gap: 0.75rem;
             }
         }
     </style>
@@ -287,36 +381,26 @@ I actively apply this knowledge by building enterprise-simulated lab environment
             <h2>Home Lab Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-image"> <img src="images/windows_server_2022.JPG" alt="Windows Server 2022"></div>
+                    <div class="project-image"> <img src="images/windows_server_2022.JPG" alt="Windows Server 2022 desktop showing Server Manager interface" loading="lazy"></div>
                     <div class="project-image">
-<img src="images/windows_server_2022_specifications.JPG" alt="Windows Server 2022_specifications">
+<img src="images/windows_server_2022_specifications.JPG" alt="Windows Server 2022 VirtualBox specifications showing RAM, CPU, and network settings" loading="lazy">
  </div>
 <div class="project-image">
-<img src="images/active-directory.JPG" alt="active directory">
+<img src="images/active-directory.JPG" alt="Active Directory Users and Computers management console with organizational units" loading="lazy">
  </div>
 
                     <div class="project-content">
                         <h3 style="text-align: center;">Windows Server 2022 Lab<br>Installing OS & Configuring Active Directory with Custom Users</h3>                     
-                        <!-- <div class="tech-tags">
-                            <span class="tech-tag">VMware</span>
-                            <span class="tech-tag">Linux</span>
-                            <span class="tech-tag">Docker</span>
-                        </div> -->
                         <p>
 In this lab, I installed Windows Server 2022 on VirtualBox, promoted the server to a Domain Controller, and configured Active Directory Domain Services (AD DS) for the domain corp.local. I then created and organized custom user accounts (e.g., IT Admin, HR User, Finance User) using Active Directory Users and Computers. The setup was verified using command-line tools (hostname, whoami) and Server Manager.                        </p>
                     </div>
                 </div>
 
 <div class="project-card">
-                    <div class="project-image"><img src="images/windows 11.JPG" alt="windows 11"></div>
-<div class="project-image"><img src="images/windows 11_specifications.JPG" alt="windows 11 specifications"></div>
+                    <div class="project-image"><img src="images/windows 11.JPG" alt="Windows 11 Enterprise desktop with taskbar and start menu" loading="lazy"></div>
+<div class="project-image"><img src="images/windows 11_specifications.JPG" alt="Windows 11 VirtualBox configuration showing TPM and Secure Boot settings" loading="lazy"></div>
                     <div class="project-content">
                         <h3 style="text-align: center;">Windows 11 Lab Setup in VirtualBox<br>Configuration Verification via Command Prompt</h3>
-                   <!--     <div class="tech-tags">
-                            <span class="tech-tag">pfSense</span>
-                            <span class="tech-tag">Networking</span>
-                            <span class="tech-tag">Security</span>
-                        </div> -->
                         <p>
 Set up Windows 11 Enterprise in VirtualBox with full TPM/Secure Boot support — verified using native CMD commands
                             (hostname, systeminfo, ipconfig) to confirm OS version, network, and system settings. </p>
@@ -324,14 +408,9 @@ Set up Windows 11 Enterprise in VirtualBox with full TPM/Secure Boot support —
                 </div>
 
 <div class="project-card">
-                    <div class="project-image"><img src="images/windows 10.png" alt="windows 10"></div>
+                    <div class="project-image"><img src="images/windows 10.png" alt="Windows 10 command prompt showing system configuration details" loading="lazy"></div>
                     <div class="project-content">
                         <h3 style="text-align: center;">Windows 10<br>Configuration Verification via Command Prompt</h3>
-                       <!-- <div class="tech-tags">
-                            <span class="tech-tag">pfSense</span>
-                            <span class="tech-tag">Networking</span>
-                            <span class="tech-tag">Security</span>
-                        </div>-->
                         <p>
                             This screenshot showcases Windows 10—the operating system I rely on daily for system administration,
                             troubleshooting, virtualization labs, and cybersecurity experimentation. 
@@ -342,15 +421,10 @@ Set up Windows 11 Enterprise in VirtualBox with full TPM/Secure Boot support —
                 </div>
 
         <div class="project-card">
-            <div class="project-image"><img src="images/ubuntu.JPG" alt="ubuntu"></div>
-            <div class="project-image"><img src="images/ubuntu_specifications.JPG" alt="Ubuntu specifications"></div>
+            <div class="project-image"><img src="images/ubuntu.JPG" alt="Ubuntu 24.04 LTS terminal showing system information commands" loading="lazy"></div>
+            <div class="project-image"><img src="images/ubuntu_specifications.JPG" alt="Ubuntu VM VirtualBox settings panel displaying hardware configuration" loading="lazy"></div>
             <div class="project-content">
                 <h3 style="text-align: center;">Ubuntu 24.04 LTS<br>Configuration Verification via Terminal and VirtualBox Settings</h3>
-               <!-- <div class="tech-tags">
-                    <span class="tech-tag">pfSense</span>
-                    <span class="tech-tag">Networking</span>
-                    <span class="tech-tag">Security</span>
-                </div>-->
                 <p>
                             This dual-view snapshot reveals the inner workings of an Ubuntu 24.04 LTS virtual machine running in VirtualBox. 
                     The terminal window shows system details — including hostname, kernel version, and user directories — 
@@ -361,17 +435,12 @@ Set up Windows 11 Enterprise in VirtualBox with full TPM/Secure Boot support —
         </div>
 
         <div class="project-card">
-            <div class="project-image"><img src="images/antix.JPG" alt="antix"></div>
+            <div class="project-image"><img src="images/antix.JPG" alt="antiX Linux terminal showing SSH server configuration and network settings" loading="lazy"></div>
             <div class="project-content">
                 <h3 style="text-align: center;">Reviving an Old Laptop with antiX Linux + SSH Remote Access from Windows 10</h3>
-                <!--<div class="tech-tags">
-                    <span class="tech-tag">pfSense</span>
-                    <span class="tech-tag">Networking</span>
-                    <span class="tech-tag">Security</span>
-                </div>-->
                 <p>
-                    breathed new life into this aging laptop by installing antiX Linux — a lightweight,
-                    fast distro perfect for older hardware. In this screenshot, I’m configuring remote access:
+                    I breathed new life into this aging laptop by installing antiX Linux — a lightweight,
+                    fast distro perfect for older hardware. In this screenshot, I'm configuring remote access:
                     after running ip a to check the network, I start the SSH server using /etc/init.d/ssh start.
                     Now, I can securely manage the machine from my Windows 10 desktop via SSH — no monitor or keyboard needed! 
                 </p>
@@ -379,18 +448,13 @@ Set up Windows 11 Enterprise in VirtualBox with full TPM/Secure Boot support —
         </div>
 
                 <div class="project-card">
-                    <div class="project-image"> <img src="images/macOS.JPG" alt="macOS">
+                    <div class="project-image"> <img src="images/macOS.JPG" alt="macOS Big Sur desktop showing Terminal with hostname and user commands" loading="lazy">
  </div>
-                    <div class="project-image"> <img src="images/macOS VM specifications.JPG" alt="macOS VM specifications">
+                    <div class="project-image"> <img src="images/macOS VM specifications.JPG" alt="VirtualBox configuration for macOS Big Sur showing EFI boot and resource allocation" loading="lazy">
  </div>
 
                     <div class="project-content">
                         <h3 style="text-align: center;">macOS<br>Configuring and Running a Big Sur VM in VirtualBox</h3>
-                        <!--<div class="tech-tags">
-                            <span class="tech-tag">Proxmox</span>
-                            <span class="tech-tag">Automation</span>
-                            <span class="tech-tag">Monitoring</span>
-                        </div>-->
                         <p>
                             This two-part visual journey shows the complete process of setting up and running macOS Big Sur inside Oracle VirtualBox. 
                             The first image details the virtual machine configuration — 6GB RAM, 4 cores, EFI boot, 
@@ -423,7 +487,7 @@ Set up Windows 11 Enterprise in VirtualBox with full TPM/Secure Boot support —
                     <ul>
                         <li>Windows 10/11</li>
                         <li>macOS</li>
-                        <li>Linux Basics</li>
+                        <li>Linux</li>
                         <li>Command Line Interface</li>
                     </ul>
                 </div>
